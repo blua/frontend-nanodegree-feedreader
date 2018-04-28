@@ -30,7 +30,7 @@ $(function() {
 		* in the allFeeds object and ensures it has a URL defined
 		* and that the URL is not empty.
 		*/
-		it('have a URL', function() {
+		it('have URLs', function() {
 			allFeeds.forEach(function (feed) {
 			expect(feed.url.length).not.toBe(0);
 			});
@@ -40,7 +40,7 @@ $(function() {
 		* in the allFeeds object and ensures it has a name defined
 		* and that the name is not empty.
 		*/
-		it('have a URL', function() {
+		it('have names', function() {
 			allFeeds.forEach(function (feed) {
 			expect(feed.name.length).not.toBe(0);
 			});
@@ -65,7 +65,7 @@ $(function() {
 		* clicked and does it hide when clicked again.
 		*/
 
-		it('toggles when clicked', function() {
+		it('toggles when icon is clicked', function() {
 			$('.menu-icon-link').click();
 			expect($('body').attr('class')).not.toContain('menu-hidden');
 			$('.menu-icon-link').click();
