@@ -52,9 +52,9 @@ $(function() {
 
 		it('toggles when icon is clicked', function() {
 			$('.menu-icon-link').click();
-			expect($('body').attr('class')).not.toContain('menu-hidden');
+			expect($('body').hasClass('menu-hidden')).toBe(false);
 			$('.menu-icon-link').click();
-			expect($('body').attr('class')).toContain('menu-hidden');
+			expect($('body').hasClass('menu-hidden')).toBe(true);
 		});
 	});
 
@@ -83,20 +83,20 @@ $(function() {
 		*/
 
 		let oldContent;
+		let newContent;
 
 		beforeEach(function(done) {
 			loadFeed(0, function() {
 				oldContent = $('.feed').html();
-				done();
+					loadFeed(1, function() {
+						newContent = $('.feed').html();
+					done();
+				});
 			});
 		});
-
 		it('changes content', function(done) {
-			loadFeed(1, function() {
-				const newContent = $('.feed').html();
-				expect(oldContent).not.toEqual(newContent);
-				done();
-			});
+			expect(oldContent).not.toEqual(newContent);
+			done();
 		});
 	});
 }());
